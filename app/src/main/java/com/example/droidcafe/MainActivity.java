@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,8 +23,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = findViewById(R.id.fab);
     }
 
     @Override
@@ -65,12 +64,10 @@ public class MainActivity extends AppCompatActivity {
     public void showFroyoOrder(View view) {
         mOrderMessage = getString(R.string.froyo_order_message);
         displayToast(mOrderMessage);
-
-
     }
 
-    public void onClick(View view) {
-        Intent intent = new Intent(MainActivity.this, OrderActivity.class);
+    public void onFLoatingActionButtonClicked(View view) {
+        Intent intent = new Intent(this, OrderActivity.class);
         intent.putExtra(EXTRA_MESSAGE, mOrderMessage);
         startActivity(intent);
     }
